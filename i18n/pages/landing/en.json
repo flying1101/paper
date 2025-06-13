@@ -3,29 +3,19 @@
   "theme": "light",
   "header": {
     "brand": {
-      "title": "ShipAny",
+      "title": "AI Wallpaper",
       "logo": {
         "src": "/logo.png",
-        "alt": "ShipAny"
+        "alt": "AI Wallpaper"
       },
       "url": "/"
     },
     "nav": {
       "items": [
-        {
-          "title": "Features",
-          "url": "/#feature",
-          "icon": "RiSparkling2Line"
-        },
+   
         {
           "title": "Pricing",
-          "url": "/pricing",
-          "icon": "RiMoneyDollarCircleLine"
-        },
-        {
-          "title": "Showcase",
-          "url": "/showcase",
-          "icon": "RiApps2Line"
+          "url": "/pricing"
         }
       ]
     },
@@ -39,13 +29,13 @@
       }
     ],
     "show_sign": true,
-    "show_theme": true,
+    "show_theme": false,
     "show_locale": true
   },
   "hero": {
-    "title": "Ship Any AI Startups in hours, not days",
+    "title": "AI Wallpaper Generator",
     "highlight_text": "Ship Any",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups.<br/>Ship Fast with a variety of templates and components.",
+    "description": "AI Wallpaper is a NextJS boilerplate for building AI SaaS startups.<br/>Ship Fast with a variety of templates and components.",
     "announcement": {
       "label": "2025",
       "title": "🎉 Happy New Year",
@@ -381,15 +371,15 @@
   "footer": {
     "name": "footer",
     "brand": {
-      "title": "ShipAny",
+      "title": "AI Wallpaper",
       "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Ship Fast with a variety of templates and components.",
       "logo": {
         "src": "/logo.png",
-        "alt": "ShipAny"
+        "alt": "AI Wallpaper"
       },
       "url": "/"
     },
-    "copyright": "© 2025 • ShipAny All rights reserved.",
+    "copyright": "© 2025 • AI Wallpaper All rights reserved.",
     "nav": {
       "items": [
         {
