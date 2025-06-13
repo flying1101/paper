@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "AI Wallpaper generator | AI Wallpaper",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups, Ship Fast with a variety of templates and components.",
-    "keywords": "ShipAny, AI SaaS Boilerplate, NextJS Boilerplate"
+    "description": "AI Wallpaper is a NextJS boilerplate for building AI SaaS startups, Ship Fast with a variety of templates and components.",
+    "keywords": "AI Wallpaper, AI SaaS Boilerplate, NextJS Boilerplate"
   },
   "user": {
     "sign_in": "Sign In",
@@ -19,7 +19,7 @@
     "sign_up_title": "Sign Up",
     "sign_up_description": "Create an account",
     "email_title": "Email",
-    "email_placeholder": "Input your email here",
+    "email_placeholder": "Input your email here",  
     "password_title": "Password",
     "password_placeholder": "Input your password here",
     "forgot_password": "Forgot password?",
