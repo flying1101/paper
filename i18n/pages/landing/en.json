@@ -15,7 +15,14 @@
    
         {
           "title": "Pricing",
-          "url": "/pricing"
+          "url": "/pricing",
+          "icon":"MdPayment"
+        },
+        {
+          "title": "Blog",
+          "url": "/posts",
+          "icon":"MdPayment"
+
         }
       ]
     },
