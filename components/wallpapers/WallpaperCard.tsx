@@ -5,8 +5,8 @@ interface WallpaperCardProps {
   title: string;
   size: string;
   author?: string;
-  onDownload?: () => void;
-  onCopyPrompt?: () => void;
+  // onDownload?: () => void;
+  // onCopyPrompt?: () => void;
 }
 
 const WallpaperCard: React.FC<WallpaperCardProps> = ({
@@ -14,8 +14,8 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({
   title,
   size,
   author,
-  onDownload,
-  onCopyPrompt,
+  // onDownload,
+  // onCopyPrompt,
 }) => {
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col w-full max-w-xs">
@@ -34,14 +34,14 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({
         </div>
         <div className="flex items-center justify-between mt-6">
           <button
-            onClick={onDownload}
+            // onClick={onDownload}
             className="font-bold text-black flex items-center gap-1 hover:underline"
           >
             DOWNLOAD
             <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20h14v-2H5v2Zm7-18c-.55 0-1 .45-1 1v10.59l-3.29-3.3a.996.996 0 1 0-1.41 1.41l5 5c.39.39 1.02.39 1.41 0l5-5a.996.996 0 1 0-1.41-1.41L13 13.59V3c0-.55-.45-1-1-1Z"/></svg>
           </button>
           <button
-            onClick={onCopyPrompt}
+            // onClick={onCopyPrompt}
             className="bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg px-6 py-2"
           >
             Copy Prompt

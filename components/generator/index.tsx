@@ -1,14 +1,31 @@
 "use client";
 
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function Generator() {
 
   const [description, setDescription] = useState('');
 
+  const requestWallpaper = async ()=>{
+    const resp = await fetch("/api/gen-wallpaper", {
+        method:"POST",
+        body: JSON.stringify({description})
+    })
+    const data = await resp.json();
+    console.log("wallpaper", data);
+  }
+
+
+
   const handleGenerate = () => {
     // 这里可以添加生成逻辑
     console.log('Generate:', description);
+    if (description && description.trim()) {
+        toast.error(description);
+    }
+
+    requestWallpaper();
   };
 
   return (

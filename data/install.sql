@@ -102,3 +102,13 @@ CREATE TABLE feedbacks (
     content TEXT,
     rating INT
 );
+
+CREATE TABLE wallpapers (
+    id SERIAL PRIMARY KEY,
+    uuid VARCHAR(255) UNIQUE NOT NULL,
+    user_uuid VARCHAR(255),
+    img_description TEXT,
+    created_at timestamptz,
+    img_url VARCHAR(255),
+    `status` VARCHAR(50)
+);
