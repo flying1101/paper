@@ -8,6 +8,9 @@ import { writeFile } from "fs/promises";
 import { Wallpaper } from "@/types/wallpaper"
 
 import { insertAffiliate } from "@/models/wallpaper"
+import { getIsoTimestr } from "@/lib/time";
+import { getUserUuid } from "@/services/user";
+import { CreditsAmount, CreditsTransType, decreaseCredits, getUserCredits } from "@/services/credit";
 
 export async function POST(req: Request) {
   try {
@@ -53,18 +56,40 @@ export async function POST(req: Request) {
     //     })
     //   );
 
-    const wallpaper = {
-            uuid: getUuid(),
-            img_description: "mytest",
-            status:"created",
-            img_url: "http://gips2.baidu.com/it/u=1649608662,1521733901&fm=3028&app=3028&f=JPEG&fmt=auto?w=2560&h=1920",
-    } as Wallpaper
+    const user_uuid = await getUserUuid();
+
+    if (!user_uuid) {
+      return respErr("user not login");
+    }
+
+    const cost_credits = 3;
+    const credits = await getUserCredits(user_uuid);
+    if (credits.left_credits < cost_credits) {
+      return respErr("not enough credits");
+    }
+
+    const wallpaper:Wallpaper = {
+      uuid: getUuid(),
+      img_description: description,
+      created_at:getIsoTimestr(),
+      status:"created",
+      img_url: "http://gips2.baidu.com/it/u=1649608662,1521733901&fm=3028&app=3028&f=JPEG&fmt=auto?w=2560&h=1920",
+    } 
 
     await insertAffiliate(wallpaper)
+
+    // decrease credits for ping
+    await decreaseCredits({
+      user_uuid,
+      trans_type: CreditsTransType.GenWallpaper,
+      credits: CreditsAmount.GenWallpaperCost,
+    });
+
 
     return respData({
       prompt,
       images:wallpaper,
+      left_credits:credits.free_credits,
     });
   } catch (e) {
     return respErr("generate wallpaper fail");

@@ -1,5 +1,6 @@
 "use client";
 
+import { error } from 'console';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -8,12 +9,22 @@ export default function Generator() {
   const [description, setDescription] = useState('');
 
   const requestWallpaper = async ()=>{
-    const resp = await fetch("/api/gen-wallpaper", {
-        method:"POST",
-        body: JSON.stringify({description})
-    })
-    const data = await resp.json();
-    console.log("wallpaper", data);
+    try {
+        toast.success("generate wallpaper ....... ")
+        const resp = await fetch("/api/gen-wallpaper", {
+            method:"POST",
+            body: JSON.stringify({description})
+        })
+        const {code,message, wallpapers} = await resp.json();
+        if (code!=0) {
+            throw new Error(message);
+        }
+        window.location.reload();
+        toast.success("generate wallpaper success ")
+    } catch (error) {
+        toast.error("generate wallpaper failed ")
+    }
+   
   }
 
 

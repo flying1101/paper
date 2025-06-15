@@ -6,7 +6,7 @@ export async function insertAffiliate(wallpaper: Wallpaper) {
   const { data, error } = await db.from("wallpapers").insert(wallpaper);
   if (error) {
     throw error;
-  }
+  } 
   return data;
 }
 
@@ -39,6 +39,6 @@ export async function getWallpapers(
     //   return { ...item, user };
     // });
   
-    return affiliates;
+    return data;
   }
   
