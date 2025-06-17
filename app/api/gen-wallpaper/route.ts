@@ -1,60 +1,62 @@
 import { respData, respErr } from "@/lib/resp";
+import { ImageGenerateParams } from "openai/resources/images.mjs";
 import { experimental_generateImage as generateImage } from "ai";
-import { replicate } from "@ai-sdk/replicate";
 import { getUuid } from "@/lib/hash";
-import  path  from "path";
-import { writeFile } from "fs/promises";
+import { downloadAndUploadImage } from "@/lib/s3";
 
-import { Wallpaper } from "@/types/wallpaper"
+import { Wallpaper } from "@/types/wallpaper";
 
-import { insertAffiliate } from "@/models/wallpaper"
+import { insertAffiliate } from "@/models/wallpaper";
 import { getIsoTimestr } from "@/lib/time";
 import { getUserUuid } from "@/services/user";
-import { CreditsAmount, CreditsTransType, decreaseCredits, getUserCredits } from "@/services/credit";
+import {
+  CreditsAmount,
+  CreditsTransType,
+  decreaseCredits,
+  getUserCredits,
+} from "@/services/credit";
+import { getOpenAIClient } from "@/services/openai";
 
 export async function POST(req: Request) {
   try {
+    const client = getOpenAIClient();
     const { description } = await req.json();
+
     const prompt = `generate a wallpaper with the following description ${description}`;
-    // const model = "black-forest-labs/flux-schnell";
 
-    // const imageModel = replicate.image(model);
-    // const providerOptions = {
-    //   replicate: {
-    //     output_quality: 90,
-    //   },
-    // };
-
-    // const { images, warnings } = await generateImage({
-    //   model: imageModel,
-    //   prompt: prompt,
+    // const llm_name = "dall-e-3";
+    // const img_size = "1792x1024";
+    // const llm_params: ImageGenerateParams = {
+    //   prompt: `generate desktop wallpaper image about ${description}`,
+    //   model: llm_name,
     //   n: 1,
-    //   providerOptions,
-    //   aspectRatio:"16:9"
-    // });
+    //   quality: "hd",
+    //   response_format: "url",
+    //   size: img_size,
+    //   style: "vivid",
+    // };
+    // const res = await client.images.generate(llm_params);
+    // const datas = res.data;
+    // if (!datas || datas?.length===0) {
+    //   return respErr("generate wallpaper failed");
+    // }
+    // const raw_img_url = datas[0].url || "";
+    // if (!raw_img_url) {
+    //   return respErr("generate wallpaper failed");
+    // }
 
-       
-    //   if (warnings.length > 0) {
-    //     throw new Error("gen images failed")
-    //   }
-       
-    //   const batch = getUuid();
-    //  const provider = "replicate" 
-    //   const processedImages = await Promise.all(
-    //     images.map(async (image, index) => {
-    //       const fileName = `${provider}_image_${batch}_${index}.png`;
-    //       const filePath = path.join(process.cwd(), ".tmp", fileName);
-       
-    //       const buffer = Buffer.from(image.base64, "base64");
-    //       await writeFile(filePath, buffer);  
-       
-    //       return {
-    //         provider,
-    //         fileName,
-    //         filePath,
-    //       };
-    //     })
-    //   );
+
+    const raw_img_url = "http://gips3.baidu.com/it/u=3886271102,3123389489&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960";
+ 
+    console.log("description",description)
+    const img_name = encodeURIComponent(description);
+    console.log("img_name=", img_name);
+    const s3_img = await downloadAndUploadImage(
+      raw_img_url,
+      process.env.STORAGE_BUCKET || "trysai",
+      `wallpapers/${img_name}.png`
+    );
+    console.log("s3_img=", s3_img);
 
     const user_uuid = await getUserUuid();
 
@@ -68,15 +70,15 @@ export async function POST(req: Request) {
       return respErr("not enough credits");
     }
 
-    const wallpaper:Wallpaper = {
+    const wallpaper: Wallpaper = {
       uuid: getUuid(),
       img_description: description,
-      created_at:getIsoTimestr(),
-      status:"created",
-      img_url: "http://gips2.baidu.com/it/u=1649608662,1521733901&fm=3028&app=3028&f=JPEG&fmt=auto?w=2560&h=1920",
-    } 
+      created_at: getIsoTimestr(),
+      status: "created",
+      img_url: raw_img_url,
+    };
 
-    await insertAffiliate(wallpaper)
+    await insertAffiliate(wallpaper);
 
     // decrease credits for ping
     await decreaseCredits({
@@ -85,13 +87,14 @@ export async function POST(req: Request) {
       credits: CreditsAmount.GenWallpaperCost,
     });
 
-
     return respData({
       prompt,
-      images:wallpaper,
-      left_credits:credits.free_credits,
+      images: wallpaper,
+      left_credits: credits.free_credits,
     });
   } catch (e) {
+    ;
+    console.log("55555", e)
     return respErr("generate wallpaper fail");
   }
 }

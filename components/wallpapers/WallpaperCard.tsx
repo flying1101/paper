@@ -18,21 +18,21 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({
   // onCopyPrompt,
 }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col w-full max-w-xs">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col w-full max-w-xs gap-2">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-6 flex-1 flex flex-col justify-between">
         <div>
           <div className="text-lg text-gray-700 mb-2">{title}</div>
-          <div className="inline-block bg-gray-100 text-gray-600 rounded-full px-3 py-1 text-xs font-semibold mb-2">{size}</div>
+          {/* <div className="inline-block bg-gray-100 text-gray-600 rounded-full px-3 py-1 text-xs font-semibold mb-2">{size}</div> */}
         </div>
-        <div className="flex items-center justify-between mt-4">
+        {/* <div className="flex items-center justify-between mt-4">
           <div className="flex items-center">
             <span className="inline-block w-8 h-8 bg-gradient-to-tr from-purple-400 to-blue-400 rounded-full flex items-center justify-center">
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4Z"/></svg>
             </span>
           </div>
-        </div>
-        <div className="flex items-center justify-between mt-6">
+        </div> */}
+        {/* <div className="flex items-center justify-between mt-6">
           <button
             // onClick={onDownload}
             className="font-bold text-black flex items-center gap-1 hover:underline"
@@ -46,7 +46,7 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({
           >
             Copy Prompt
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

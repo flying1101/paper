@@ -3,18 +3,22 @@
 import { error } from 'console';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { Button } from "@/components/ui/button";
 
 export default function Generator() {
 
   const [description, setDescription] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const requestWallpaper = async ()=>{
     try {
         toast.success("generate wallpaper ....... ")
+        setLoading(true);
         const resp = await fetch("/api/gen-wallpaper", {
             method:"POST",
             body: JSON.stringify({description})
         })
+        setLoading(false);
         const {code,message, wallpapers} = await resp.json();
         if (code!=0) {
             throw new Error(message);
@@ -32,10 +36,9 @@ export default function Generator() {
   const handleGenerate = () => {
     // 这里可以添加生成逻辑
     console.log('Generate:', description);
-    if (description && description.trim()) {
-        toast.error(description);
+    if (!description) {
+        toast.error("description is empty");
     }
-
     requestWallpaper();
   };
 
@@ -50,9 +53,9 @@ export default function Generator() {
       />
       <button
         className="bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-2xl px-8 py-4 text-lg transition"
-        onClick={handleGenerate}
+        onClick={handleGenerate} disabled={loading}
       >
-        Generate
+       {loading ? "Generating..." : "Generate"}
       </button>
     </div>
   );
