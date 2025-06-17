@@ -69,17 +69,17 @@ export async function POST(req: Request) {
         const body = Buffer.from(image.base64, "base64");
 
         try {
-          const res = await storage.uploadFile({
-            body,
-            key,
-            contentType: "image/png",
-            disposition: "inline",
-          });
+          // const res = await storage.uploadFile({
+          //   body,
+          //   key,
+          //   contentType: "image/png",
+          //   disposition: "inline",
+          // });
 
           return {
-            ...res,
-            provider,
-            filename,
+            // ...res,
+            // provider,
+            // filename,
           };
         } catch (err) {
           console.log("upload file failed:", err);
