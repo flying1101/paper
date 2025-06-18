@@ -4,7 +4,7 @@ import { respData, respErr } from "@/lib/resp";
 import type { ImageModelV1 } from "@ai-sdk/provider";
 import { getUuid } from "@/lib/hash";
 import { kling } from "@/aisdk/kling";
-import { newStorage } from "@/lib/storage";
+// import { newStorage } from "@/lib/storage";
 import { openai } from "@ai-sdk/openai";
 import { replicate } from "@ai-sdk/replicate";
 
@@ -58,7 +58,8 @@ export async function POST(req: Request) {
       return respErr("gen images failed");
     }
 
-    const storage = newStorage();
+    
+    // const storage = newStorage();
 
     const batch = getUuid();
 
@@ -69,15 +70,15 @@ export async function POST(req: Request) {
         const body = Buffer.from(image.base64, "base64");
 
         try {
-          const res = await storage.uploadFile({
-            body,
-            key,
-            contentType: "image/png",
-            disposition: "inline",
-          });
+          // const res = await storage.uploadFile({
+          //   body,
+          //   key,
+          //   contentType: "image/png",
+          //   disposition: "inline",
+          // });
 
           return {
-            ...res,
+            // ...res,
             provider,
             filename,
           };

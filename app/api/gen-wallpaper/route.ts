@@ -1,7 +1,8 @@
 import { respData, respErr } from "@/lib/resp";
 import { ImageGenerateParams } from "openai/resources/images.mjs";
 import { getUuid } from "@/lib/hash";
-import { downloadAndUploadImage } from "@/lib/s3";
+
+import {uploadImageFromUrl} from "@/services/s3"
 
 import { Wallpaper } from "@/types/wallpaper";
 
@@ -43,22 +44,13 @@ export async function POST(req: Request) {
     if (!raw_img_url) {
       return respErr("generate wallpaper failed");
     }
-
-
-    // const raw_img_url = "http://gips3.baidu.com/it/u=3886271102,3123389489&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960";
-    console.log("raw_img_url",raw_img_url)
-    console.log("description",description)
-    const img_name = encodeURIComponent(description);
-    console.log("img_name=", img_name);
-    const s3_img = await downloadAndUploadImage(
-      raw_img_url,
-      process.env.STORAGE_BUCKET || "trysai",
-      `wallpapers/${img_name}.png`
-    );
-    console.log("s3_img=", s3_img);
-
-    const img_url  = s3_img.Location;
-
+    // const raw_img_url = "http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960";
+    console.log("raw_img_url=", raw_img_url);
+    const img_name =  encodeURIComponent(description);
+    const key = `wallpapers/${getUuid()}.png`;
+    const s3_rep = await uploadImageFromUrl(raw_img_url, key);
+    const { s3_url } = s3_rep;
+    console.log("s3_url=", s3_url);
     const user_uuid = await getUserUuid();
 
     if (!user_uuid) {
@@ -70,13 +62,12 @@ export async function POST(req: Request) {
     if (credits.left_credits < cost_credits) {
       return respErr("not enough credits");
     }
-    console.log("img_url=", img_url);
     const wallpaper: Wallpaper = {
       uuid: getUuid(),
       img_description: description,
       created_at: getIsoTimestr(),
       status: "created",
-      img_url: img_url,
+      img_url:s3_url,
     };
     await insertAffiliate(wallpaper);
     // decrease credits for ping
@@ -91,6 +82,7 @@ export async function POST(req: Request) {
       left_credits: credits.free_credits,
     });
   } catch (e) {
+    console.log(e)
     return respErr("generate wallpaper fail");
   }
 }
