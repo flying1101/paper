@@ -1,6 +1,5 @@
 import { respData, respErr } from "@/lib/resp";
 import { ImageGenerateParams } from "openai/resources/images.mjs";
-import { experimental_generateImage as generateImage } from "ai";
 import { getUuid } from "@/lib/hash";
 import { downloadAndUploadImage } from "@/lib/s3";
 
@@ -58,6 +57,8 @@ export async function POST(req: Request) {
     );
     console.log("s3_img=", s3_img);
 
+    const img_url  = s3_img.Location;
+
     const user_uuid = await getUserUuid();
 
     if (!user_uuid) {
@@ -69,32 +70,27 @@ export async function POST(req: Request) {
     if (credits.left_credits < cost_credits) {
       return respErr("not enough credits");
     }
-
+    console.log("img_url=", img_url);
     const wallpaper: Wallpaper = {
       uuid: getUuid(),
       img_description: description,
       created_at: getIsoTimestr(),
       status: "created",
-      img_url: raw_img_url,
+      img_url: img_url,
     };
-
     await insertAffiliate(wallpaper);
-
     // decrease credits for ping
     await decreaseCredits({
       user_uuid,
       trans_type: CreditsTransType.GenWallpaper,
       credits: CreditsAmount.GenWallpaperCost,
     });
-
     return respData({
       prompt,
       images: wallpaper,
       left_credits: credits.free_credits,
     });
   } catch (e) {
-    ;
-    console.log("55555", e)
     return respErr("generate wallpaper fail");
   }
 }
