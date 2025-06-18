@@ -69,6 +69,7 @@ export async function POST(req: Request) {
       status: "created",
       img_url:s3_url,
     };
+    console.log("11111");
     await insertAffiliate(wallpaper);
     // decrease credits for ping
     await decreaseCredits({
@@ -76,13 +77,16 @@ export async function POST(req: Request) {
       trans_type: CreditsTransType.GenWallpaper,
       credits: CreditsAmount.GenWallpaperCost,
     });
+    console.log("222222");
     return respData({
       prompt,
       images: wallpaper,
       left_credits: credits.free_credits,
     });
   } catch (e) {
+    console.log("333333");
     console.log(e)
-    return respErr("generate wallpaper fail");
+    throw e;
+    // return respErr("generate wallpaper fail");
   }
 }
