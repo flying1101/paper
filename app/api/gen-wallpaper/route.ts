@@ -24,27 +24,27 @@ export async function POST(req: Request) {
 
     const prompt = `generate a wallpaper with the following description ${description}`;
 
-    const llm_name = "dall-e-3";
-    const img_size = "1792x1024";
-    const llm_params: ImageGenerateParams = {
-      prompt: `generate desktop wallpaper image about ${description}`,
-      model: llm_name,
-      n: 1,
-      quality: "hd",
-      response_format: "url",
-      size: img_size,
-      style: "vivid",
-    };
-    const res = await client.images.generate(llm_params);
-    const datas = res.data;
-    if (!datas || datas?.length===0) {
-      return respErr("generate wallpaper failed");
-    }
-    const raw_img_url = datas[0].url || "";
-    if (!raw_img_url) {
-      return respErr("generate wallpaper failed");
-    }
-    // const raw_img_url = "http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960";
+    // const llm_name = "dall-e-3";
+    // const img_size = "1792x1024";
+    // const llm_params: ImageGenerateParams = {
+    //   prompt: `generate desktop wallpaper image about ${description}`,
+    //   model: llm_name,
+    //   n: 1,
+    //   quality: "hd",
+    //   response_format: "url",
+    //   size: img_size,
+    //   style: "vivid",
+    // };
+    // const res = await client.images.generate(llm_params);
+    // const datas = res.data;
+    // if (!datas || datas?.length===0) {
+    //   return respErr("generate wallpaper failed");
+    // }
+    // const raw_img_url = datas[0].url || "";
+    // if (!raw_img_url) {
+    //   return respErr("generate wallpaper failed");
+    // }
+    const raw_img_url = "http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960";
     console.log("raw_img_url=", raw_img_url);
     const img_name =  encodeURIComponent(description);
     const key = `wallpapers/${getUuid()}.png`;
