@@ -85,17 +85,17 @@ if (
     GoogleProvider({
       clientId: process.env.AUTH_GOOGLE_ID,
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
-      authorization: {
-        params: {
-          redirect_uri: process.env.GOOGLE_REDIRECT_URI,
-          response_type:"code",
-          scope:"openid email profile",
-          state:"SECURE_RANDOM_STRING",
-          access_type:"offline",
-          prompt:"consent",
-          url: "https://accounts.google.com/o/oauth2/v2/auth",
-        }
-      }
+    //   authorization: {
+    //     params: {
+    //       redirect_uri: process.env.GOOGLE_REDIRECT_URI,
+    //       response_type:"code",
+    //       scope:"openid email profile",
+    //       state:"SECURE_RANDOM_STRING",
+    //       access_type:"offline",
+    //       prompt:"consent",
+    //       url: "https://accounts.google.com/o/oauth2/v2/auth",
+    //     }
+    //   }
     })
   );
 }
