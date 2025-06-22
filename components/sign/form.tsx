@@ -41,11 +41,10 @@ export default function SignForm({
                 <Button
                   variant="outline"
                   className="w-full"
-                  // onClick={() => signIn("google")}
+                  onClick={() => signIn("google")}
                 >
-                  <Link href={`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.AUTH_GOOGLE_ID}&redirect_uri=${process.env.GOOGLE_REDIRECT_URI}&response_type=code&scope=openid email profile&state=SECURE_RANDOM_STRING&access_type=offline&prompt=consent`}>谷歌登陆</Link>
-                  {/* <SiGoogle className="w-4 h-4" />
-                  {t("sign_modal.google_sign_in")} */}
+                  <SiGoogle className="w-4 h-4" />
+                  {t("sign_modal.google_sign_in")} 
                 </Button>
               )}
               {process.env.NEXT_PUBLIC_AUTH_GITHUB_ENABLED === "true" && (
