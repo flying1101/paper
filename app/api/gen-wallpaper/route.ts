@@ -22,7 +22,8 @@ export async function POST(req: Request) {
     const client = getOpenAIClient();
     const { description } = await req.json();
 
-    const prompt = `generate a wallpaper with the following description ${description}`;
+    const prompt = `Generate 3D icons with the following description ${description}`;
+    
 
     // const llm_name = "dall-e-3";
     // const img_size = "1792x1024";

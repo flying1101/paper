@@ -1,0 +1,498 @@
+{
+  "template": "shipany-template-one",
+  "theme": "light",
+  "header": {
+    "brand": {
+      "title": "ShipAny",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "ShipAny"
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "主な機能",
+          "url": "/#feature",
+          "icon": "RiSparkling2Line"
+        },
+        {
+          "title": "価格",
+          "url": "/pricing",
+          "icon": "RiMoneyDollarCircleLine"
+        },
+        {
+          "title": "事例紹介",
+          "url": "/showcase",
+          "icon": "RiApps2Line"
+        }
+      ]
+    },
+    "buttons": [
+      {
+        "title": "ShipAnyを入手",
+        "url": "https://shipany.ai",
+        "target": "_blank",
+        "variant": "link",
+        "icon": "RiArrowRightUpLine"
+      }
+    ],
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": true
+  },
+  "hero": {
+    "title": "数日ではなく数時間でAIスタートアップを構築",
+    "highlight_text": "素早く構築",
+    "description": "ShipAnyはAI SaaSスタートアップ構築のためのNextJSテンプレートです。<br/>豊富なテンプレートとコンポーネントですぐに始められます。",
+    "announcement": {
+      "label": "2025",
+      "title": "🎉 明けましておめでとうございます",
+      "url": "/#pricing"
+    },
+    "tip": "🎁 2025年まで半額キャンペーン中",
+    "buttons": [
+      {
+        "title": "今すぐ始める",
+        "icon": "RiFlashlightFill",
+        "url": "/#pricing",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "Discordに参加",
+        "icon": "RiDiscordFill",
+        "url": "https://discord.gg/HQNnrzjZQS",
+        "target": "_blank",
+        "variant": "outline"
+      }
+    ],
+    "show_happy_users": true,
+    "show_badge": false
+  },
+  "branding": {
+    "title": "ShipAnyは巨人の肩の上に立っています",
+    "items": [
+      {
+        "title": "Next.js",
+        "image": {
+          "src": "/imgs/logos/nextjs.svg",
+          "alt": "Next.js"
+        }
+      },
+      {
+        "title": "React",
+        "image": {
+          "src": "/imgs/logos/react.svg",
+          "alt": "React"
+        }
+      },
+      {
+        "title": "TailwindCSS",
+        "image": {
+          "src": "/imgs/logos/tailwindcss.svg",
+          "alt": "TailwindCSS"
+        }
+      },
+      {
+        "title": "Shadcn/UI",
+        "image": {
+          "src": "/imgs/logos/shadcn.svg",
+          "alt": "Shadcn/UI"
+        }
+      },
+      {
+        "title": "Vercel",
+        "image": {
+          "src": "/imgs/logos/vercel.svg",
+          "alt": "Vercel"
+        }
+      }
+    ]
+  },
+  "introduce": {
+    "name": "introduce",
+    "title": "ShipAnyとは",
+    "label": "紹介",
+    "description": "ShipAnyはAI SaaSスタートアップ構築のためのNextJSテンプレートで、多様なテンプレートとコンポーネントを内蔵しています。",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "items": [
+      {
+        "title": "すぐに使えるテンプレート",
+        "description": "数十種類の本番対応AI SaaSテンプレートから選び、素早くプロジェクトを開始できます。",
+        "icon": "RiNextjsFill"
+      },
+      {
+        "title": "インフラ構成",
+        "description": "ベストプラクティスを備えた拡張可能なインフラをすぐに利用可能。",
+        "icon": "RiDatabase2Line"
+      },
+      {
+        "title": "迅速なデプロイ",
+        "description": "AI SaaSアプリを数時間で本番環境にデプロイ可能、数日かかりません。",
+        "icon": "RiCloudyFill"
+      }
+    ]
+  },
+  "benefit": {
+    "name": "benefit",
+    "title": "ShipAnyを選ぶ理由",
+    "label": "メリット",
+    "description": "AIスタートアップに必要なすべてを提供 - テンプレートから技術サポートまで。",
+    "items": [
+      {
+        "title": "フルスタックフレームワーク",
+        "description": "Next.jsベースで認証・決済・AI機能を統合、すべてすぐに使えます。",
+        "icon": "RiNextjsFill",
+        "image": {
+          "src": "/imgs/features/2.png"
+        }
+      },
+      {
+        "title": "豊富なテンプレートライブラリ",
+        "description": "様々なAI SaaSテンプレートでプロジェクトを開始 - チャットボットや画像生成など。",
+        "icon": "RiClapperboardAiLine",
+        "image": {
+          "src": "/imgs/features/3.png"
+        }
+      },
+      {
+        "title": "技術サポート",
+        "description": "専任サポートと開発者コミュニティで、成功をしっかりサポートします。",
+        "icon": "RiCodeFill",
+        "image": {
+          "src": "/imgs/features/4.png"
+        }
+      }
+    ]
+  },
+  "usage": {
+    "name": "usage",
+    "title": "ShipAnyでプロジェクトを始める方法",
+    "description": "3つの簡単なステップでAI SaaSスタートアップを始めましょう：",
+    "image": {
+      "src": "/imgs/features/1.png"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "ShipAnyを入手",
+        "description": "一括購入でShipAnyを入手。メールでコードとドキュメントを受け取ります。",
+        "image": {
+          "src": "/imgs/features/5.png"
+        }
+      },
+      {
+        "title": "プロジェクトを開始",
+        "description": "ドキュメントを読み、ShipAnyのコードをクローン。AI SaaSスタートアップの構築を始めましょう。",
+        "image": {
+          "src": "/imgs/features/6.png"
+        }
+      },
+      {
+        "title": "プロジェクトをカスタマイズ",
+        "description": "自分のデータやコンテンツでテンプレートを編集。特定のAI機能要件に対応します。",
+        "image": {
+          "src": "/imgs/features/7.png"
+        }
+      },
+      {
+        "title": "本番環境にデプロイ",
+        "description": "数ステップで本番環境にデプロイし、すぐに顧客にサービスを提供できます。",
+        "image": {
+          "src": "/imgs/features/8.png"
+        }
+      }
+    ]
+  },
+  "feature": {
+    "name": "feature",
+    "title": "ShipAnyの主な機能",
+    "description": "AI SaaSスタートアップに必要なすべてを迅速かつ効率的に提供。",
+    "items": [
+      {
+        "title": "Next.jsテンプレート",
+        "description": "本番対応のNext.jsテンプレート、SEOフレンドリーな構造と多言語対応。",
+        "icon": "RiNextjsFill"
+      },
+      {
+        "title": "認証と決済",
+        "description": "Google OAuth、ワンタップログイン、Stripe決済を統合。",
+        "icon": "RiKey2Fill"
+      },
+      {
+        "title": "データインフラ",
+        "description": "Supabase統合で信頼性と拡張性のあるデータストレージを提供。",
+        "icon": "RiDatabase2Line"
+      },
+      {
+        "title": "ワンクリックデプロイ",
+        "description": "VercelやCloudflareへのシームレスなデプロイ、自動セットアップ。",
+        "icon": "RiCloudy2Fill"
+      },
+      {
+        "title": "ビジネス分析",
+        "description": "Google AnalyticsやSearch Consoleで成長を追跡。",
+        "icon": "RiBarChart2Line"
+      },
+      {
+        "title": "AI対応インフラ",
+        "description": "AI統合を事前構成、ポイントシステムやAPI販売も内蔵。",
+        "icon": "RiRobot2Line"
+      }
+    ]
+  },
+  "stats": {
+    "name": "stats",
+    "label": "統計",
+    "title": "ShipAnyはユーザーに愛されています",
+    "description": "使いやすさと素早いリリースが理由です。",
+    "icon": "FaRegHeart",
+    "items": [
+      {
+        "title": "信頼",
+        "label": "99+",
+        "description": "顧客"
+      },
+      {
+        "title": "内蔵",
+        "label": "20+",
+        "description": "コンポーネント"
+      },
+      {
+        "title": "素早いリリース",
+        "label": "5",
+        "description": "分"
+      }
+    ]
+  },
+  "testimonial": {
+    "name": "testimonial",
+    "label": "ユーザーの声",
+    "title": "ShipAnyの評価",
+    "description": "ShipAnyでAIスタートアップを始めた開発者や創業者の声をご紹介します。",
+    "icon": "GoThumbsup",
+    "items": [
+      {
+        "title": "デイビッド・チェン",
+        "label": "AIWallpaper.shop 創業者",
+        "description": "ShipAnyのおかげで数ヶ月分の開発時間を節約できました。たった2日でAI壁紙ビジネスを立ち上げ、1週間で最初の有料顧客を獲得！",
+        "image": {
+          "src": "/imgs/users/1.png"
+        }
+      },
+      {
+        "title": "レイチェル・キム",
+        "label": "HeyBeauty.ai 技術責任者",
+        "description": "事前構築されたAIインフラはゲームチェンジャーです。アーキテクチャを心配せず、AI美容技術に集中して素早くリリースできました。",
+        "image": {
+          "src": "/imgs/users/2.png"
+        }
+      },
+      {
+        "title": "マーカス",
+        "label": "個人開発者",
+        "description": "個人開発者として、ShipAnyは必要なものがすべて揃っています - 認証、決済、AI統合、美しいUI。週末で自分のSaaSを立ち上げました！",
+        "image": {
+          "src": "/imgs/users/3.png"
+        }
+      },
+      {
+        "title": "ソフィア",
+        "label": "Melodisco CEO",
+        "description": "これらのテンプレートは本番対応で高いカスタマイズ性があります。数ヶ月ではなく数時間でAI音楽プラットフォームを構築できました。驚異的なスピードです！",
+        "image": {
+          "src": "/imgs/users/4.png"
+        }
+      },
+      {
+        "title": "ジェームズ",
+        "label": "GPTs.works 技術責任者",
+        "description": "ShipAnyのインフラは非常に堅牢です。0から1万人のユーザーまでバックエンドに触れずにスケールできました。AIスタートアップへの最高の投資です。",
+        "image": {
+          "src": "/imgs/users/5.png"
+        }
+      },
+      {
+        "title": "アンナ・チャン",
+        "label": "起業家",
+        "description": "アイデアからリリースまでたった3日！ShipAnyのテンプレートとデプロイツールで、AIビジネスのコンセプトを驚くほど速く検証できました。",
+        "image": {
+          "src": "/imgs/users/6.png"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "name": "faq",
+    "label": "よくある質問",
+    "title": "ShipAnyに関するよくある質問",
+    "description": "他にご質問があれば、Discordまたはメールでご連絡ください。",
+    "items": [
+      {
+        "title": "ShipAnyとは何で、どのように機能しますか？",
+        "description": "ShipAnyはAI SaaSスタートアップ構築専用の包括的なNextJSテンプレートです。すぐに使えるテンプレート、インフラ設定、デプロイツールを提供し、数日ではなく数時間でAIビジネスを立ち上げられます。"
+      },
+      {
+        "title": "ShipAnyの利用に高度な技術スキルは必要ですか？",
+        "description": "基本的なプログラミング知識があれば役立ちますが、ShipAnyは非常に開発者フレンドリーに設計されています。テンプレートとドキュメントにより、AIやクラウドインフラの専門家でなくても簡単に始められます。"
+      },
+      {
+        "title": "ShipAnyでどんなAI SaaSを構築できますか？",
+        "description": "ShipAnyは幅広いAIアプリケーションに対応しています。テンプレートはAIチャットボット、コンテンツ生成、画像処理アプリなど人気のユースケースをカバーしています。"
+      },
+      {
+        "title": "ShipAnyを使うとどれくらいで立ち上げられますか？",
+        "description": "ShipAnyを使えば、数時間でプロトタイプを完成させ、本番対応アプリも数時間で構築できます。ワンクリックデプロイと事前構成インフラで、従来の数ヶ月の開発期間を大幅に短縮します。"
+      },
+      {
+        "title": "ShipAnyのインフラには何が含まれますか？",
+        "description": "ShipAnyは認証、データベース設定、API統合、決済処理、拡張可能なクラウドデプロイなど、完全なインフラスタックを提供します。すべて業界のベストプラクティスで事前構成済みです。"
+      },
+      {
+        "title": "テンプレートを自分のブランドに合わせてカスタマイズできますか？",
+        "description": "もちろん可能です！すべてのShipAnyテンプレートは完全にカスタマイズ可能です。デザインや機能を自社ブランドやビジネス要件に合わせて編集でき、強力な基盤インフラはそのまま活用できます。"
+      }
+    ]
+  },
+  "cta": {
+    "name": "cta",
+    "title": "最初のAI SaaSスタートアップを始めましょう",
+    "description": "ここからShipAnyでスタート。",
+    "buttons": [
+      {
+        "title": "ShipAnyを入手",
+        "url": "https://shipany.ai",
+        "target": "_blank",
+        "icon": "GoArrowUpRight"
+      },
+      {
+        "title": "ドキュメントを読む",
+        "url": "https://docs.shipany.ai",
+        "target": "_blank",
+        "variant": "outline"
+      }
+    ]
+  },
+  "footer": {
+    "name": "footer",
+    "brand": {
+      "title": "ShipAny",
+      "description": "ShipAnyはAI SaaSスタートアップ構築のためのNextJSテンプレートです。豊富なテンプレートとコンポーネントですぐに始められます。",
+      "logo": {
+        "src": "/logo.png",
+        "alt": "ShipAny"
+      },
+      "url": "/"
+    },
+    "copyright": "© 2025 • ShipAny All rights reserved.",
+    "nav": {
+      "items": [
+        {
+          "title": "会社情報",
+          "children": [
+            {
+              "title": "主な機能",
+              "url": "/#feature",
+              "target": "_self"
+            },
+            {
+              "title": "事例紹介",
+              "url": "/#showcase",
+              "target": "_self"
+            },
+            {
+              "title": "価格",
+              "url": "/#pricing",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "リソース",
+          "children": [
+            {
+              "title": "ドキュメント",
+              "url": "https://docs.shipany.ai",
+              "target": "_blank"
+            },
+            {
+              "title": "コンポーネント",
+              "url": "https://shipany.ai/components",
+              "target": "_blank"
+            },
+            {
+              "title": "テンプレート",
+              "url": "https://shipany.ai/templates",
+              "target": "_blank"
+            }
+          ]
+        },
+        {
+          "title": "パートナー",
+          "children": [
+            {
+              "title": "ThinkAny",
+              "url": "https://thinkany.ai",
+              "target": "_blank"
+            },
+            {
+              "title": "HeyBeauty",
+              "url": "https://heybeauty.ai",
+              "target": "_blank"
+            },
+            {
+              "title": "Pagen",
+              "url": "https://pagen.so",
+              "target": "_blank"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "X",
+          "icon": "RiTwitterXFill",
+          "url": "https://x.com/shipanyai",
+          "target": "_blank"
+        },
+        {
+          "title": "Github",
+          "icon": "RiGithubFill",
+          "url": "https://github.com/shipanyai",
+          "target": "_blank"
+        },
+        {
+          "title": "Discord",
+          "icon": "RiDiscordFill",
+          "url": "https://discord.gg/HQNnrzjZQS",
+          "target": "_blank"
+        },
+        {
+          "title": "メール",
+          "icon": "RiMailLine",
+          "url": "mailto:support@shipany.ai",
+          "target": "_self"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "プライバシーポリシー",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "利用規約",
+          "url": "/terms-of-service"
+        }
+      ]
+    }
+  }
+}
